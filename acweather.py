@@ -165,7 +165,30 @@ def calculate_average(values):
 # PLACEHOLDER: calculate_standard_deviation
 
 
-# PLACEHOLDER: calculate_range
+def _get_min(values: list[float]) -> float:
+    val = values[0]
+
+    for other_val in values[1:]:
+        if val < other_val:
+            val = other_val
+
+    return val
+
+def _get_max(values: list[float]) -> float:
+    val = values[0]
+
+    for other_val in values[1:]:
+        if val > other_val:
+            val = other_val
+
+    return val
+
+
+def calculate_range(values: list[float]) -> float:
+    min_value = _get_min(values)
+    max_value = _get_max(values)
+
+    return max_value - min_value
 
 
 # PLACEHOLDER: calculate_median
