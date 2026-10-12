@@ -158,8 +158,8 @@ def calculate_average(values):
     total_sum = sum(values)
     count = len(values)
     
-    average = total_sum / count
-    return average
+    aveg = total_sum / count
+    return aveg
 
 
 # PLACEHOLDER: calculate_standard_deviation
