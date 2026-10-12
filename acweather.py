@@ -176,11 +176,9 @@ def calculate_variance(data):
 
     mean = calculate_average(data)
     running_sum=0
-    #length=0
 
     for i in data:
         running_sum += (i-mean)**2
-        #length+=1
 
     variance = running_sum/len(data)
     return variance
