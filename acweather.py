@@ -168,7 +168,32 @@ def calculate_average(values):
 # PLACEHOLDER: calculate_range
 
 
-# PLACEHOLDER: calculate_median
+# Group 3 - Median - Weronika, Tom, Marti
+
+def calculate_median(values):
+    """
+    Calculate the median of a list of numbers.
+
+    Args:
+        values (list): A list of numerical values.
+
+    Returns:
+        float: The median value.
+    """
+    if len(values) == 0:
+        return None  # Return None or handle empty data case as needed
+
+
+    sorted_values = sorted(values) #Sorts the values from smallest to largest
+    n = len(sorted_values)
+    mid = n // 2
+
+    if n % 2 == 0:  # Even number of values
+        median = (sorted_values[mid - 1] + sorted_values[mid]) / 2
+    else:  # Odd number of values
+        median = sorted_values[mid]
+
+    return median
 
 
 # PLACEHOLDER: calculate_variance
