@@ -162,7 +162,25 @@ def calculate_average(values):
     return average
 
 
-# PLACEHOLDER: calculate_standard_deviation
+def calculate_standard_deviation(values: list) -> float:
+    """
+    Calculate the standard deviation of a list of numbers.
+
+    Args:
+        values (list): A list of numerical values.
+    Returns:
+        float: The standard deviation of the values.
+    """
+
+    if len(values) == 0:
+        return None
+
+    xbar = calculate_average(values=values)
+    N = len(values)
+
+    var = sum([(x - xbar) ** 2 for x in values]) / (N - 1)
+
+    return var ** (1/2)
 
 
 # PLACEHOLDER: calculate_range
