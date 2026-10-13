@@ -3,11 +3,12 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import unittest
+import math
 import os
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from acweather import read_dataset, clean_data, train_model, calculate_average
+from acweather import read_dataset, clean_data, train_model, calculate_average, calculate_standard_deviation
 
 class TestWeatherPrediction(unittest.TestCase):
 
@@ -46,7 +47,17 @@ class TestWeatherPrediction(unittest.TestCase):
         self.assertGreater(len(features), 0)  # Check if features were returned
         self.assertEqual(cleaned_df.iloc[:, -1].values.all(), target.values.all())  # Target should be the last column
 
-# PLACEHOLDER: does_calculate_standard_deviation_work(self)
+    def test_calculate_standard_deviation(self):
+
+        testvalues = [1, 4, 7]
+
+        for vals, ref in (([1, 4, 7], 3), ([1,] * 117, 0),([-1, -4, -7], 3)):
+            std_dev = calculate_standard_deviation(vals)
+            self.assertIsInstance(std_dev, float)  # Check if the result is a float
+            self.assertEqual(std_dev, ref)  # Check if the standard deviation is correct
+            self.assertGreaterEqual(std_dev, 0)  # Standard deviation should be non-negative
+            self.assertTrue(math.isfinite(std_dev))  # Check if the standard deviation is finite
+
 
 # PLACEHOLDER: does_calculate_range_work(self)
 
