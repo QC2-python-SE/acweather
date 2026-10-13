@@ -6,7 +6,7 @@ import pytest
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from acweather import read_dataset, clean_data, train_model, calculate_average, calculate_median, calculate_range, calculate_variance
+from acweather import read_dataset, clean_data, train_model, calculate_range
 
 @pytest.fixture
 def mock_data():
@@ -55,7 +55,22 @@ def test_train_model(mock_data):
 
 # PLACEHOLDER: test_calculate_standard_deviation()
 
-# PLACEHOLDER: test_calculate_range()
+class TestCalculateRange:
+
+    def test_simple_range(self):
+        assert calculate_range([4, 30, 27, 4]) == 26
+
+    def test_negative_range(self):
+        assert calculate_range([4, 30, 27, -4]) == 34
+
+    def test_float_range(self):
+        assert calculate_range([4.5, 30.0, 27.0, 4.0]) == 25.5
+
+    def test_negative_float_range(self):
+        assert calculate_range([-4.5, 30.0, 27.0, 4.0]) == 34.5
+
+    def test_float_int_range(self):
+        assert calculate_range([4.5, 30, 27, 4]) == 25.5
 
 # PLACEHOLDER: test_calculate_median()
 
