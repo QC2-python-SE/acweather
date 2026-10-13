@@ -84,3 +84,7 @@ class TestCalculateRange:
 # PLACEHOLDER: test_calculate_median()
 
 # PLACEHOLDER: test_calculate_variance()
+def test_calculate_variance():
+    input_1 = [1, 2, 3, 4, 5]
+    expected_output_1 = 2.5  # Variance of [1, 2, 3, 4, 5] is 2.5
+    assert calculate_variance(input_1) == expected_output_1, "variance of f{input_1} != f{expected_output_1}"
