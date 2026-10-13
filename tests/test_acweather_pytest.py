@@ -1,3 +1,4 @@
+import math
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -6,7 +7,7 @@ import pytest
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from acweather import read_dataset, clean_data, train_model, calculate_range
+from acweather import read_dataset, clean_data, train_model, calculate_average, calculate_median, calculate_range, calculate_variance, calculate_standard_deviation
 
 @pytest.fixture
 def mock_data():
@@ -53,7 +54,15 @@ def test_train_model(mock_data):
     assert len(features) > 0  # Ensure features were returned
     assert (cleaned_df.iloc[:, -1].values == target.values).all()  # Ensure target matches the last column
 
-# PLACEHOLDER: test_calculate_standard_deviation()
+def test_calculate_standard_deviation():
+    # Test the standard deviation calculation
+
+    for vals, ref in (([1, 4, 7], 3), ([1,] * 117, 0),([-1, -4, -7], 3)):
+        std_dev = calculate_standard_deviation(vals)
+        assert isinstance(std_dev, float)  # Check if the result is a float
+        assert std_dev == ref  # Check if the standard deviation is correct
+        assert std_dev >= 0  # Standard deviation should be non-negative
+        assert math.isfinite(std_dev)  # Check if the standard deviation is finite
 
 class TestCalculateRange:
 
