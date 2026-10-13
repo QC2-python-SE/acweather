@@ -7,7 +7,7 @@ import os
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from acweather import read_dataset, clean_data, train_model, calculate_average
+from acweather import read_dataset, clean_data, train_model, calculate_median
 
 class TestWeatherPrediction(unittest.TestCase):
 
@@ -51,6 +51,35 @@ class TestWeatherPrediction(unittest.TestCase):
 # PLACEHOLDER: does_calculate_range_work(self)
 
 # PLACEHOLDER: does_calculate_median_work(self)
+
+
+class TestCalculateMedian(unittest.TestCase):
+
+    def test_ordered_median(self):
+        self.assertEqual(calculate_median([1,2,3,4,7]), 3)
+        
+    def test_unordered_median(self):
+            self.assertEqual(calculate_median([1, 4, 3, 5, 2]), 3)
+
+    def test_negative_median(self):
+        self.assertEqual(calculate_median([-5, -3, -1, 0, 1]), -1)
+
+    def test_float_median(self):
+        self.assertEqual(calculate_median([-10.5, -5.5, 3.5, 4.5, 5.5]), 3.5)
+
+    def test_negative_float_median(self):
+        self.assertEqual(calculate_median([-3.1, -4.3, -6.5, -7.6, -10.3]), -6.5)
+
+    def test_all_zero_median(self):
+        self.assertEqual(calculate_median([0, 0, 0, 0, 0]), 0)
+
+    def test_even_number_of_elements_median(self):
+        self.assertEqual(calculate_median([1, 2, 3, 4]), 2.5)
+
+    
+
+
+
 
 # PLACEHOLDER: does_calculate_variance_work(self)
 

@@ -201,6 +201,11 @@ def calculate_median(values):
     if len(values) == 0:
         return None  # Return None or handle empty data case as needed
 
+    for value in values:
+        dtype = type(value)
+        if dtype is not int and dtype is not float:
+            raise ValueError("All elements in the list must be numbers.")
+   
 
     sorted_values = sorted(values) #Sorts the values from smallest to largest
     n = len(sorted_values)
