@@ -8,7 +8,7 @@ import os
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from acweather import read_dataset, clean_data, train_model, calculate_average, calculate_standard_deviation
+from acweather import read_dataset, clean_data, train_model, calculate_average, calculate_median, calculate_range, calculate_variance, calculate_standard_deviation
 
 class TestWeatherPrediction(unittest.TestCase):
 
@@ -79,6 +79,10 @@ class TestCalculateRange(unittest.TestCase):
 # PLACEHOLDER: does_calculate_median_work(self)
 
 # PLACEHOLDER: does_calculate_variance_work(self)
+    def does_calculate_variance_work(self):
+        input_1 = [1, 2, 3, 4, 5]
+        expected_output_1 = 2.5  # Variance of [1, 2, 3, 4, 5] is 2.5
+        self.assertEqual(calculate_variance(input_1), expected_output_1, f"variance of {input_1} != {expected_output_1}")
 
 if __name__ == '__main__':
     unittest.main()
