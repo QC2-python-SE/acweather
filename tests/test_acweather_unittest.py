@@ -59,7 +59,22 @@ class TestWeatherPrediction(unittest.TestCase):
             self.assertTrue(math.isfinite(std_dev))  # Check if the standard deviation is finite
 
 
-# PLACEHOLDER: does_calculate_range_work(self)
+class TestCalculateRange(unittest.TestCase):
+
+    def test_simple_range(self):
+        self.assertEqual(calculate_range([4, 30, 27, 4]), 26)
+
+    def test_negative_range(self):
+        self.assertEqual(calculate_range([-4, 30, 27, -4]), 34)
+
+    def test_float_range(self):
+        self.assertEqual(calculate_range([4.5, 30.0, 27.0, 4.5]), 25.5)
+
+    def test_negative_float_range(self):
+        self.assertEqual(calculate_range([-4.5, 30.0, 27.0, 4.0]), 34.5)
+
+    def test_float_int_range(self):
+        self.assertEqual(calculate_range([4.5, 30, 27, 4.5]), 25.5)
 
 # PLACEHOLDER: does_calculate_median_work(self)
 

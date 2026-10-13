@@ -183,13 +183,71 @@ def calculate_standard_deviation(values: list) -> float:
     return var ** (1/2)
 
 
-# PLACEHOLDER: calculate_range
+def _get_min(values: list[float]) -> float:
+    val = values[0]
+
+    for other_val in values[1:]:
+        if val > other_val:
+            val = other_val
+
+    return val
+
+def _get_max(values: list[float]) -> float:
+    val = values[0]
+
+    for other_val in values[1:]:
+        if val < other_val:
+            val = other_val
+
+    return val
 
 
-# PLACEHOLDER: calculate_median
+def calculate_range(values: list[float]) -> float:
+    min_value = _get_min(values)
+    max_value = _get_max(values)
+
+    return max_value - min_value
+
+
+# Group 3 - Median - Weronika, Tom, Marti
+
+def calculate_median(values):
+    """
+    Calculate the median of a list of numbers.
+
+    Args:
+        values (list): A list of numerical values.
+
+    Returns:
+        float: The median value.
+    """
+    if len(values) == 0:
+        return None  # Return None or handle empty data case as needed
+
+
+    sorted_values = sorted(values) #Sorts the values from smallest to largest
+    n = len(sorted_values)
+    mid = n // 2
+
+    if n % 2 == 0:  # Even number of values
+        median = (sorted_values[mid - 1] + sorted_values[mid]) / 2
+    else:  # Odd number of values
+        median = sorted_values[mid]
+
+    return median
 
 
 # PLACEHOLDER: calculate_variance
+def calculate_variance(data):
+
+    mean = calculate_average(data)
+    running_sum=0
+
+    for i in data:
+        running_sum += (i-mean)**2
+
+    variance = running_sum/len(data)
+    return variance
 
  
 def main():
