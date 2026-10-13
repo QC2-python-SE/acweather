@@ -169,7 +169,7 @@ def _get_min(values: list[float]) -> float:
     val = values[0]
 
     for other_val in values[1:]:
-        if val < other_val:
+        if val > other_val:
             val = other_val
 
     return val
@@ -178,7 +178,7 @@ def _get_max(values: list[float]) -> float:
     val = values[0]
 
     for other_val in values[1:]:
-        if val > other_val:
+        if val < other_val:
             val = other_val
 
     return val
