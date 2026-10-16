@@ -79,10 +79,27 @@ class TestCalculateRange(unittest.TestCase):
 # PLACEHOLDER: does_calculate_median_work(self)
 
 # PLACEHOLDER: does_calculate_variance_work(self)
-    def does_calculate_variance_work(self):
+    def test_calculate_variance_work(self):
         input_1 = [1, 2, 3, 4, 5]
-        expected_output_1 = 2.5  # Variance of [1, 2, 3, 4, 5] is 2.5
+        expected_output_1 = 2.0  # Variance of [1, 2, 3, 4, 5] is 2.0
         self.assertEqual(calculate_variance(input_1), expected_output_1, f"variance of {input_1} != {expected_output_1}")
+
+        input_2 = [0,0,0,0,0,0]
+        expected_output_2 = 0.0  # Variance of [0, 0, 0, 0, 0, 0] is 0.0
+        self.assertEqual(calculate_variance(input_2), expected_output_2, f"variance of {input_2} != {expected_output_2}")
+
+        input_3 = [-3.7, -2.1, 0.0, 1.5, 3.2]
+        expected_output_3 = 6.0696 # Variance of [-3.7, -2.1, 0.0, 1.5, 3.2] is approximately 6.0696
+        self.assertAlmostEqual(calculate_variance(input_3), expected_output_3, 5, f"variance of {input_3} != {expected_output_3}")
+    
+        input_4 = [float('nan'), 1, 2, 3, 4, float('nan')]
+        expected_output_4 = np.nan  # Variance with NaN values should return NaN. Had to use np, no other way to check for NaN in unittest.
+        np.testing.assert_equal(calculate_variance(input_4), expected_output_4, f"variance of {input_4} != {expected_output_4}")
+
+        input_5 = []
+        expected_output_5 = 0  # Variance of an empty list should return ZeroDivisionError
+        with self.assertRaises(ZeroDivisionError):
+            calculate_variance(input_5)
 
 if __name__ == '__main__':
     unittest.main()
