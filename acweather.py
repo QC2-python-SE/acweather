@@ -183,9 +183,19 @@ def calculate_standard_deviation(values: list) -> float:
     var = sum([(x - xbar) ** 2 for x in values]) / (N - 1)
 
     return var ** (1/2)
-
-
 def _get_min(values: list[float]) -> float:
+    """Returns the minimum value from a list of floats.
+
+    Parameters
+    ----------
+    values : list[float]
+        A list of floats.
+
+    Returns
+    -------
+    float
+        The minimum value in the list.
+    """
     val = values[0]
 
     for other_val in values[1:]:
@@ -194,7 +204,20 @@ def _get_min(values: list[float]) -> float:
 
     return val
 
+
 def _get_max(values: list[float]) -> float:
+    """Returns the maximum value from a list of floats.
+
+    Parameters
+    ----------
+    values : list[float]
+        A list of floats.
+
+    Returns
+    -------
+    float
+        The maximum value in the list.
+    """
     val = values[0]
 
     for other_val in values[1:]:
@@ -205,11 +228,23 @@ def _get_max(values: list[float]) -> float:
 
 
 def calculate_range(values: list[float]) -> float:
+    """ Returns the difference between the maximum and minimum values.
+
+    Parameters
+    ----------
+    values : list[float]
+        A list of floats.
+
+
+    Returns
+    -------
+    float
+        The difference between the maximum and minimum values.
+    """
     min_value = _get_min(values)
     max_value = _get_max(values)
 
     return max_value - min_value
-
 
 # Group 3 - Median - Weronika, Tom, Marti
 
