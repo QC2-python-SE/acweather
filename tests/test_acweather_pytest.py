@@ -55,7 +55,13 @@ def test_train_model(mock_data):
     assert (cleaned_df.iloc[:, -1].values == target.values).all()  # Ensure target matches the last column
 
 def test_calculate_standard_deviation():
-    # Test the standard deviation calculation
+    """
+    Test the calculate_standard_deviation function.
+
+    This test checks if the function correctly calculates the standard deviation for various input lists.   
+
+    © QuantumEmotion:It's-just-a-phase
+    """
 
     for vals, ref in (([1, 4, 7], 3), ([1,] * 117, 0),([-1, -4, -7], 3)):
         std_dev = calculate_standard_deviation(vals)

@@ -166,6 +166,8 @@ def calculate_standard_deviation(values: list) -> float:
     """
     Calculate the standard deviation of a list of numbers.
 
+    © QuantumEmotion:It's-just-a-phase
+
     Args:
         values (list): A list of numerical values.
     Returns:

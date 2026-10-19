@@ -48,7 +48,13 @@ class TestWeatherPrediction(unittest.TestCase):
         self.assertEqual(cleaned_df.iloc[:, -1].values.all(), target.values.all())  # Target should be the last column
 
     def test_calculate_standard_deviation(self):
+        """
+        Test the calculate_standard_deviation function.
 
+        This test checks if the function correctly calculates the standard deviation for various input lists.   
+
+        © QuantumEmotion:It's-just-a-phase
+        """
         testvalues = [1, 4, 7]
 
         for vals, ref in (([1, 4, 7], 3), ([1,] * 117, 0),([-1, -4, -7], 3)):
