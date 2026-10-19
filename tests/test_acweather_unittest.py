@@ -8,7 +8,7 @@ import os
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
-from acweather import read_dataset, clean_data, train_model, calculate_average, calculate_median, calculate_range, calculate_variance, calculate_standard_deviation
+from acweather.main import read_dataset, clean_data, train_model, calculate_average, calculate_median, calculate_range, calculate_variance, calculate_standard_deviation
 
 class TestWeatherPrediction(unittest.TestCase):
 
