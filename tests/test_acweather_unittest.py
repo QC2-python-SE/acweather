@@ -84,14 +84,19 @@ class TestCalculateRange(unittest.TestCase):
 
 # PLACEHOLDER: does_calculate_median_work(self)
 
-
 class TestCalculateMedian(unittest.TestCase):
 
+    """"
+        Test cases for the calculate_median function.
+        These tests cover various scenarios including ordered and unordered lists,
+        negative numbers, floating-point numbers, and edge cases like all zeros and even number of elements.
+    """
+
     def test_ordered_median(self):
-        self.assertEqual(calculate_median([1,2,3,4,7]), 3)
-        
+            self.assertEqual(calculate_median([1,2,3,4,7]), 3)
+            
     def test_unordered_median(self):
-            self.assertEqual(calculate_median([1, 4, 3, 5, 2]), 3)
+                self.assertEqual(calculate_median([1, 4, 3, 5, 2]), 3)
 
     def test_negative_median(self):
         self.assertEqual(calculate_median([-5, -3, -1, 0, 1]), -1)

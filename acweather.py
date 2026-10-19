@@ -222,6 +222,10 @@ def calculate_median(values):
 
     Returns:
         float: The median value.
+
+    Raises:
+        None: If the input list is empty.
+        ValueError: If the input list contains non-numeric values.
     """
     if len(values) == 0:
         return None  # Return None or handle empty data case as needed
