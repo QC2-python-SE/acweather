@@ -85,6 +85,24 @@ class TestCalculateRange:
 
 # PLACEHOLDER: test_calculate_variance()
 def test_calculate_variance():
+    """
+    Using pytest to test the calculate_variance function with various inputs.
+
+    Test 1: A simple list of integers.
+    Test 2: A list of zero values.
+    Test 3: A list of negative and positive float values.
+    Test 4: A list containing NaN values.
+    Test 5: An empty list (should raise ZeroDivisionError).
+
+    Args:
+        None
+    
+    Returns:
+        None
+    
+    Raises:
+        AssertionError: If the calculated variance does not match the expected output.  
+    """
     input_1 = [1, 2, 3, 4, 5]
     expected_output_1 = 2.0  # Variance of [1, 2, 3, 4, 5] is 2.5
     assert calculate_variance(input_1) == expected_output_1, "variance of f{input_1} != f{expected_output_1}"

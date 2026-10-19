@@ -109,6 +109,24 @@ class TestCalculateMedian(unittest.TestCase):
 
 # PLACEHOLDER: does_calculate_variance_work(self)
     def test_calculate_variance_work(self):
+        """
+        Using unittest to test the calculate_variance function with various inputs. 
+    
+        Test 1: A simple list of integers.
+        Test 2: A list of zero values.
+        Test 3: A list of negative and positive float values.
+        Test 4: A list containing NaN values.
+        Test 5: An empty list (should raise ZeroDivisionError).
+    
+        Args:
+            None
+        
+        Returns:
+            None
+        
+        Raises:
+            AssertionError: If the calculated variance does not match the expected output. 
+        """
         input_1 = [1, 2, 3, 4, 5]
         expected_output_1 = 2.0  # Variance of [1, 2, 3, 4, 5] is 2.0
         self.assertEqual(calculate_variance(input_1), expected_output_1, f"variance of {input_1} != {expected_output_1}")

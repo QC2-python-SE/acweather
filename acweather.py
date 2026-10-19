@@ -244,6 +244,15 @@ def calculate_median(values):
 
 # PLACEHOLDER: calculate_variance
 def calculate_variance(data):
+    """
+    Calculate the variance of a 1D list of numbers.
+
+    Args:
+        data (list): A list of numerical values.
+
+    Returns:
+        float: The variance of the values.
+    """
 
     mean = calculate_average(data)
     running_sum=0
