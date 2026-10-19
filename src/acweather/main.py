@@ -221,7 +221,7 @@ def calculate_median(values):
         values (list): A list of numerical values.
 
     Returns:
-        float: The median value.
+        median (float): The median value.
 
     Raises:
         None: If the input list is empty.

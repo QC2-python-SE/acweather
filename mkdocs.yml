@@ -1,0 +1,50 @@
+site_name: acweather
+site_description: Weather prediction package for Python
+repo_url: https://github.com/QC2-python-SE/acweather
+repo_name: QC2-python-SE/acweather
+
+theme:
+  name: material
+  features:
+    - navigation.tabs        # Top-level sections as tabs
+    - navigation.top         # "Back to top" button
+    - content.code.copy      # Copy button on code blocks
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition            # !!! note blocks
+  - pymdownx.details      # Collapsible blocks
+  - pymdownx.superfences  # Better code blocks
+  - toc:
+      permalink: true     # Clickable heading anchors
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]    # IMPORTANT: where your source lives
+          options:
+            docstring_style: google
+            show_root_heading: true
+            show_source: true
+            members_order: source
+            separate_signature: true
+            show_signature_annotations: true
+            docstring_options:
+              ignore_init_summary: true
+
+nav:
+  - Home: index.md
+  - API Reference: api.md
+
